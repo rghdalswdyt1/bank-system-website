@@ -58,7 +58,7 @@ export default function Signup() {
         }, 2000); // Redirect after a delay
       } catch (error) {
         console.error("Signup error: ", error); // Log the entire error
-        toast.error(`Try Again: ${error.response?.data?.message || error.message}`, {
+        toast.error(`Try Again :  ${error.response?.data?.message || error.message}`, {
           theme: "colored",
         });
       } finally {

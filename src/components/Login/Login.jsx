@@ -39,7 +39,7 @@ export default function Login() {
           navigate('/dashboard'); // إعادة التوجيه إلى صفحة dashboard أو الصفحة المقصودة
         }, 2000);
       } catch (error) {
-        toast.error(`Login failed: ${error.response?.data?.message || error.message}`, { theme: 'danger' });
+        toast.error(`Try again :  ${error.response?.data?.message || error.message}`, { theme: 'danger' });
       } finally {
         setLoading(false);
       }
