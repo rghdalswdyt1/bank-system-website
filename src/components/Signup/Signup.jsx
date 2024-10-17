@@ -39,44 +39,33 @@ export default function Signup() {
 
     onSubmit: async (values) => {
       setIsLoading(true);
-
+    
       try {
         const response = await axios.post(
           'https://bank-system-backend.vercel.app/apis/customer/register',
-          values,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            timeout: 3000, // Set a timeout
-          }
+          values
         );
-
+        console.log('====================================');
         console.log('Signup response:', response);
-
-        toast.success("Sign up successful! Please check your email for the OTP.", { theme: "colored" });
+        console.log('====================================');
+        // Handle response without a token
+        // Assuming that after successful registration, an OTP is sent, and we navigate to OTP verification page.
         
+        toast.success("Sign up successful! Please check your email for the OTP.", { theme: "colored" });
+    
         setTimeout(() => {
-          navigate('/otp-verification');
-        }, 2000);
+          navigate('/otp-verification'); // Redirect to OTP verification page
+        }, 2000); // Redirect after a delay
       } catch (error) {
-        console.error("Signup error: ", error);
-
-        if (error.response) {
-          toast.error(`Registration failed: ${error.response.data.message}`, {
-            theme: "colored",
-          });
-        } else if (error.request) {
-          toast.error('Network error: Please try again later.', { theme: "colored" });
-        } else {
-          toast.error(`Error: ${error.message}`, { theme: "colored" });
-        }
+        console.error("Signup error: ", error); // Log the entire error
+        toast.error(`Try Again: ${error.response?.data?.message || error.message}`, {
+          theme: "colored",
+        });
       } finally {
         setIsLoading(false);
       }
-    },
+    }
   });
-
 
   return (
     <div className="bg">
