@@ -27,9 +27,7 @@ export default function Login() {
       try {
         // إرسال البيانات إلى API
         const response = await axios.post('https://bank-system-backend.vercel.app/apis/customer/login', values, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          withCredentials: true
         });
         
         const { token, isVerified } = response.data; // بافتراض أن الـ API يعيد `isVerified`

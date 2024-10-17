@@ -26,11 +26,9 @@ export default function Otp() {
       try {
         // Send OTP verification request to the server
         const response = await axios.post('https://bank-system-backend.vercel.app/apis/customer/verify-otp', values, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          withCredentials: true
         });
-
+          console.log("response", response.data);
         // On success, display a success message and navigate to dashboard or relevant page
         toast.success('OTP verified successfully!');
         setTimeout(() => {

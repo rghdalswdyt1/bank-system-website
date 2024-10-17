@@ -43,7 +43,9 @@ export default function Signup() {
       try {
         const response = await axios.post(
           'https://bank-system-backend.vercel.app/apis/customer/register',
-          values
+          values,{
+             withCredentials: true
+          }
         );
         console.log('====================================');
         console.log('Signup response:', response);
