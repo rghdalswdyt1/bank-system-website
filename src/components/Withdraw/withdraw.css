@@ -1,0 +1,82 @@
+.withdraw-page {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    height: 80vh; /* Use 80% of the viewport height */
+
+}
+
+
+.withdraw-form-container {
+
+    width: 50%; /* Width: 50% of the screen */
+
+    padding: 20px; /* Padding around the form */
+
+
+    border-radius: 8px; /* Optional: Rounded corners */
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for depth */
+
+}
+
+
+.form-group {
+
+    margin-bottom: 15px; /* Space between form fields */
+
+}
+
+
+.form-control {
+
+    width: 100%; /* Full width of container */
+
+    padding: 10px; /* Padding inside inputs */
+
+    margin: 5px 0; /* Vertical margin between inputs */
+
+}
+
+.popup {
+    position: absolute; /* Change to absolute */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the popup */
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    width: 70%; /* Responsive width */
+    max-width: 400px; /* Max width */
+    height: auto; /* Automatic height based on content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.popup-content {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%; /* Full width of the popup */
+    position: relative;
+}
+
+.popup-success {
+    border: 2px solid green;
+}
+
+.popup-error {
+    border: 2px solid red;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}

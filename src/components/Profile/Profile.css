@@ -1,0 +1,30 @@
+/* Profile.css */
+.profile-container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .profile-form .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .flex-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-label {
+    margin-right: 10px; /* المسافة بين label و input */
+    width: 100px; /* عرض ثابت للـ label */
+  }
+  
+  .form-control {
+    flex-grow: 1;
+  }
+  
+  button {
+    width: 100%;
+    border-radius: 50px;
+  }
+  

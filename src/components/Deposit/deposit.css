@@ -1,0 +1,62 @@
+.deposit-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* استخدام ارتفاع الشاشة الكامل */
+    
+}
+
+.deposit-form-container {
+    width: 50%; /* عرض نصف الشاشة */
+    padding: 20px;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.popup {
+    position: absolute; /* Change to absolute */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the popup */
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    width: 70%; /* Responsive width */
+    max-width: 400px; /* Max width */
+    height: auto; /* Automatic height based on content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.popup-content {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%; /* Full width of the popup */
+    position: relative;
+}
+
+.popup-success {
+    border: 2px solid green;
+}
+
+.popup-error {
+    border: 2px solid red;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
