@@ -41,11 +41,17 @@ export default function Signup() {
       setIsLoading(true);
     
       try {
-        const response = await axios.post(
-          'https://bank-system-backend.vercel.app/apis/customer/register',
-          values
-        );
-    
+        const response = await fetch("https://bank-system-backend.vercel.app/apis/customer/register",{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values)
+        })
+        
+        console.log('====================================');
+        console.log('Signup response:', response);
+        console.log('====================================');
         // Handle response without a token
         // Assuming that after successful registration, an OTP is sent, and we navigate to OTP verification page.
         toast.success("Sign up successful! Please check your email for the OTP.", { theme: "colored" });
@@ -54,7 +60,7 @@ export default function Signup() {
           navigate('/otp-verification'); // Redirect to OTP verification page
         }, 2000); // Redirect after a delay
       } catch (error) {
-        console.error("Signup error: ", error.response); // Log the entire error
+        console.error("Signup error: ", error); // Log the entire error
         toast.error(`Registration failed: ${error.response?.data?.message || error.message}`, {
           theme: "colored",
         });
