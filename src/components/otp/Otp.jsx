@@ -30,7 +30,8 @@ export default function Otp() {
         });
           console.log("response", response.data);
         // On success, display a success message and navigate to dashboard or relevant page
-        toast.success('OTP verified successfully!');
+        toast.success(response.data.message, { theme: 'colored' });
+          localStorage.setItem('token', response.data.token);
         setTimeout(() => {
           navigate('/dashboard'); // Redirect to dashboard
         }, 2000);
