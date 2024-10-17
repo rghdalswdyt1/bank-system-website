@@ -31,9 +31,18 @@ export default function Login() {
             'Content-Type': 'application/json',
           },
         });
-        const { token } = response.data; // بافتراض أن الـ API يعيد token
-        localStorage.setItem('token', token); // تخزين الـ token في localStorage
+        
+        const { token, isVerified } = response.data; // بافتراض أن الـ API يعيد `isVerified`
 
+        // التحقق مما إذا كان العميل قد أكد الـ OTP
+        if (!isVerified) {
+          toast.error('Please verify your OTP before logging in.', { theme: 'warning' });
+          setLoading(false);
+          return;
+        }
+
+        // إذا تم التحقق، تخزين التوكن وتوجيه المستخدم
+        localStorage.setItem('token', token); // تخزين الـ token في localStorage
         toast.success('Login successful!', { theme: 'success' });
         setTimeout(() => {
           navigate('/dashboard'); // إعادة التوجيه إلى صفحة dashboard أو الصفحة المقصودة
@@ -54,9 +63,9 @@ export default function Login() {
   return (
     <div className="bg">
        <Helmet>
-                <title>login</title>
-                <meta name="description" content="login to enter to our system" />
-            </Helmet>
+          <title>Login</title>
+          <meta name="description" content="login to enter to our system" />
+       </Helmet>
       <div className="login-background">
         <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
           <div className="card p-4 shadow-lg" style={{ width: '400px', backgroundColor: 'rgba(0,0,0,.2)', borderRadius: '10px' }}>
@@ -98,7 +107,7 @@ export default function Login() {
               </div>
 
               {/* زر تسجيل الدخول */}
-              <button type="submit" className="btn btn-primary w-100" style={{borderRadius:"50px"}} disabled={loading}>
+              <button type="submit" className="btn btn-primary w-100" style={{ borderRadius: "50px" }} disabled={loading}>
                 {loading ? 'Loading...' : 'Login'}
               </button>
 
